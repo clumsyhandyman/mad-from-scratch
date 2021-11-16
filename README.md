@@ -1,5 +1,6 @@
-# mad-linear-regression
-This repository is part of my "MAD from scratch" series where I learn machine learning, artificial intelligence, and data science by building algorithms in Python from scratch.
+# mad-from-scratch
+This repository is a series of machine learning, artificial intelligence, and data science algorithms built from scractch as a learning experience.
 
-This repository is a linear regression model using gradient descent.
+The following algorithms are implemented in Python:
 
+- Linear regression
