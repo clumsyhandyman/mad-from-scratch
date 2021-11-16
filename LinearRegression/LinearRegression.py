@@ -3,15 +3,20 @@ import matplotlib.pyplot as plt
 
 
 class LinearRegression:
-    def __init__(self, x, y, max_iteration=1000, tol=1e-3):
+    def __init__(self, x, y, max_iteration=1000, tol=1e-3, verbose=False, plot=False):
         """
         :param x: x of training data
         :param y: y of training data
         :param max_iteration: maximum allowable number of iterations
         :param tol: tolerance to determine convergence
+        :param verbose: whether to print out verbose
+        :param plot: whether to output figures
         """
         self.max_iteration = max_iteration
         self.tol = tol
+        self.verbose = verbose
+        self.plot = plot
+
         self.mu = np.mean(x, axis=0)
         self.sigma = np.std(x, axis=0)
         self.x_train = self.standard_transform(x)
@@ -28,7 +33,7 @@ class LinearRegression:
         scaled_x = np.insert(scaled_x, 0, np.ones(scaled_x.shape[0]), axis=1)
         return scaled_x
 
-    def gradient_descend(self, x, y, learning_rate=0.01, verbose=True):
+    def gradient_descend(self, x, y, learning_rate=0.01):
         """
         this function is the gradient descent process of training data x and y.
         the weights(w) is optimized so that wx has the minimal MSE to y.
@@ -39,6 +44,8 @@ class LinearRegression:
         :return: w: weights so that y_pred = wx with minimal MSE to y
         :return: mse_log: records of MSE of each iteration
         """
+        if self.verbose is True:
+            print(f'====== START gradient descent with learning rate of {learning_rate}')
         # Get number of instances (n) and number of attributes (d)
         n = x.shape[0]
         d = x.shape[1]
@@ -53,17 +60,16 @@ class LinearRegression:
         for i in range(self.max_iteration):
             y_pred = np.matmul(x, w)
             mse = np.mean((y - y_pred) ** 2)
-            if verbose is True:
-                print(f'Iteration: {i} ----------------')
-                print(f'mse = {mse}')
+            if self.verbose is True:
+                print(f'Iteration: {i} mse = {mse}')
 
             # Terminate if decrease of MSE is less than tol
             if len(mse_log) != 0 and 0 <= (mse_log[-1] - mse) / mse_log[-1] < self.tol:
-                if verbose is True:
+                if self.verbose is True:
                     print('MSE improvement is less than tol. Terminate.')
                 break
             elif len(mse_log) != 0 and mse_log[-1] < mse:
-                if verbose is True:
+                if self.verbose is True:
                     print('MSE increases. Failed to converge.')
                 break
             else:
@@ -74,18 +80,20 @@ class LinearRegression:
 
         return w, mse_log
 
-    def tune_learning_rate(self, plot=False):
+    def tune_learning_rate(self):
         lr = 0.1
-        w, mse_log = self.gradient_descend(self.x_train, self.y_train, learning_rate=lr, verbose=False)
-        print(f'lr = {lr} mse = {mse_log[-1]}')
+        w, mse_log = self.gradient_descend(self.x_train, self.y_train, learning_rate=lr)
+        if self.verbose is True:
+            print(f'lr = {lr} mse = {mse_log[-1]}')
         lr_list = [lr]
         mse_list = [mse_log[-1]]
         mse_log_list = [mse_log]
 
         while lr > 1e-20:
             lr *= 0.1
-            w, mse_log = self.gradient_descend(self.x_train, self.y_train, learning_rate=lr, verbose=False)
-            print(f'lr = {lr} mse = {mse_log[-1]}')
+            w, mse_log = self.gradient_descend(self.x_train, self.y_train, learning_rate=lr)
+            if self.verbose is True:
+                print(f'lr = {lr} mse = {mse_log[-1]}')
             if mse_log[-1] > 10 * mse_list[-1]:
                 break
             lr_list.append(lr)
@@ -98,7 +106,7 @@ class LinearRegression:
         for lr in lr_list:
             legend_list.append(np.format_float_scientific(lr, precision=1, trim='0'))
 
-        if plot is True:
+        if self.plot is True:
             fig, axes = plt.subplots(2, 1, figsize=(6, 8), dpi=100)
 
             axes[0].set_title('Learning curve of different learning rate')
@@ -121,7 +129,7 @@ class LinearRegression:
 
         return opt_lr
 
-    def fit(self, lr=None, plot=False):
+    def fit(self, lr=None):
         """
         this function is the training process of training data x and y.
         :param lr: learning rate.
@@ -130,10 +138,10 @@ class LinearRegression:
         :return: None
         """
         if lr is None:
-            lr = self.tune_learning_rate(plot=plot)
-        w, mse_log = self.gradient_descend(self.x_train, self.y_train, learning_rate=lr, verbose=False)
+            lr = self.tune_learning_rate()
+        w, mse_log = self.gradient_descend(self.x_train, self.y_train, learning_rate=lr)
         self.weights = w
-        if plot is True:
+        if self.plot is True:
             fig, ax = plt.subplots(1, 1, figsize=(4, 2.5), dpi=100)
             ax.set_title('Learning curve of linear regression')
             ax.plot(mse_log, marker='.', color='#ff7f0e')
@@ -142,6 +150,14 @@ class LinearRegression:
             ax.set_yscale('log')
             plt.tight_layout()
             plt.show()
+
+    def get_weights(self):
+        unscaled_wights = self.weights[1:] / self.sigma
+        return unscaled_wights
+
+    def get_intercept(self):
+        unscaled_intercept = self.weights[0] - np.sum(self.weights[1:] * self.mu / self.sigma)
+        return unscaled_intercept
 
     # def summary(self):
     #     """
