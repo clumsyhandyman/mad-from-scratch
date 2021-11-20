@@ -17,6 +17,8 @@ def test(dataset, plot=True):
         print('No data set under the input name.')
         return
 
+    print(df.head(10))
+
     df = df.to_numpy()
     x = df[:, 0:-1]
     y = df[:, -1]
@@ -44,6 +46,46 @@ def test(dataset, plot=True):
     plt.show()
 
 
+def test_learning_rate(dataset, plot=True):
+    if dataset == 'uscrime':
+        df = pd.read_csv('data/uscrime.txt', sep='\t')
+    elif dataset == 'BostonHousing':
+        df = pd.read_csv('data/BostonHousing.txt', sep=',')
+    elif dataset == 'diamonds':
+        df = pd.read_csv('data/diamonds.csv', sep=' ')
+    else:
+        print('No data set under the input name.')
+        return
+
+    df = df.to_numpy()
+    x = df[:, 0:-1]
+    y = df[:, -1]
+    x_train, x_test, y_train, y_test = train_test_split(x, y)
+
+    lr_list = [0.2, 0.1, 0.001]
+    mse_log_list = []
+    for i in range(len(lr_list)):
+        learner = LinearRegression(x_train, y_train, plot=plot, verbose=True)
+        w, mse_log = learner.gradient_descend(learner.x_train, learner.y_train, lr=lr_list[i])
+        mse_log_list.append(mse_log)
+
+    fig, ax = plt.subplots(1, 1, figsize=(4.5, 2.5), dpi=100)
+    ax.set_title('Learning curves of different learning rates')
+    ax.plot(mse_log_list[0][:10], marker='.', label=f'lr = {lr_list[0]}')
+    ax.plot(mse_log_list[1][:200], label=f'lr = {lr_list[1]}')
+    ax.plot(mse_log_list[2][:200], linestyle='dashed', label=f'lr = {lr_list[2]}')
+    ax.set_ylabel('MSE')
+    ax.set_xlabel('Iteration')
+    ax.set_yscale('log')
+    ax.legend()
+    plt.tight_layout()
+    plt.show()
+
+
+
 # test('uscrime')
-test('BostonHousing')
-# test('diamonds')
+# test('BostonHousing')
+test('diamonds')
+
+# test_learning_rate('BostonHousing')
+

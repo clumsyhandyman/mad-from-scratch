@@ -113,22 +113,25 @@ class LinearRegression:
             legend_list.append(f'{lr:.0e}')
 
         if self.plot is True:
-            fig, axes = plt.subplots(2, 1, figsize=(6, 8), dpi=100)
+            fig, axes = plt.subplots(2, 1, figsize=(4.5, 5), dpi=100)
 
-            axes[0].set_title('Learning curve of different learning rate')
+            axes[0].set_title('Learning curves of different learning rates')
             for i in range(len(lr_list)):
                 axes[0].plot(mse_log_list[i])
             axes[0].set_ylabel('MSE')
             axes[0].set_xlabel('Iteration')
             axes[0].legend(legend_list)
 
-            axes[1].set_title('Converged MSE of different learning rate')
+            axes[1].set_title('Converged MSE of different learning rates')
             axes[1].plot(lr_list, mse_list, marker='s', color='red')
+            axes[1].plot([opt_lr], [min(mse_list)], marker='o', color='#2ca02c',
+                         mfc='none', linestyle='none', markersize=12,
+                         label=f'optimum learning rate = {opt_lr}')
             axes[1].set_xscale('log')
             axes[1].invert_xaxis()
             axes[1].set_xlabel('Learning rate')
             axes[1].set_ylabel('MSE')
-            axes[1].legend(['optimum learning rate =' + str(opt_lr)])
+            axes[1].legend()
 
             plt.tight_layout()
             plt.show()
