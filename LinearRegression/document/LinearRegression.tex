@@ -47,17 +47,18 @@ Let's start with one real-life example instead.
 When we build a bookshelf, we have to choose which plywood to use.
 From common sense, we know if our bookshelf is wide, we need thicker or stronger plywood, otherwise the bookshelf would bow or sag because of the weight of books.
 In contrast, if our bookshelf is narrow, perhaps thinner or weaker plywood would be fine.
-In that case,using thicker or stronger plywood would add unnecessary cost and thus is not an optimal choice.
+In that case, using thicker or stronger plywood would add unnecessary cost and thus is not an optimal choice.
 
 Here we have two groups of data: ``plywood'' and ``width of bookshelf''.
 Our task is to answer this question: given our desired width of bookshelf, which plywood should we use?
 If we call ``width of bookshelf'' as $x$ and ``plywood'' as $y$, then our task is ``given $x$, what is $y$?''
 
 How do we answer this question? 
+
 Admittedly there are many ways, but probably the go-to method for most people is simply looking around existing bookshelves.
 We just look around, find existing bookshelves, gather their width and which plywood did they use, and then determine the plywood for our new bookshelves.
 The underlying rationale is that we assume our new bookshelf is similar in nature to these existing ones. 
-If it has similar width as some of the existing ones, maybe we can just go ahead and use a similar type or thickness of plywood as those ones.
+If the new bookshelf has similar width as some of the existing ones, maybe we can just go ahead and use a similar type or thickness of plywood as those ones.
 
 In other words, to answer the question ``given $x$, what is $y$'', we just gather a bunch of existing $x$ and $y$.
 We try to ``learn'' something from these existing $x$ and $y$.
@@ -68,7 +69,8 @@ That is part of the story where the word $machine learning$ comes from, in which
 In the world of supervised learning, if $y$ is regarded to a label or a type, such as ``pine plywood'', ``cedar plywood'', ``redwood plywood'', and so on, then this problem is called ``classification''.
 In contrast, if $y$ is regarded to a continuous number, such as the thickness of a wood piece like ``0.32 inch'', ``0.44 inch'', ``0.58 inch'', and so on, then this problem is called ``regression'', which is the topic of our discussion today.
 
-We admit this is not a great regression example since dimensions in traditional woodworking are usually limited to multiples of 1/8 inch, but assume we have a high-tech workshop using CNC machines to do woodworking and we can achieve any random dimension like 0.572 inch, then this is truly a regression problem.
+We admit this is not a great regression example since dimensions in traditional woodworking are usually limited to multiples of 1/8 inch
+Let's assume we have a high-tech workshop using CNC machines to do woodworking and we can achieve any random dimension like 0.572 inch, then this is truly a regression problem.
 
 \section{Math expression of a linear regression}
 A regression problem, like we said above, is to answer ``given $x$, what is $y$'' by looking at some existing pairs of $x$ and $y$.
@@ -88,18 +90,18 @@ y_1 & y_2 & ... & y_n
 
 The task of regression is to find the relation from $x$ to $y$.
 In machine learning, sometimes people call this as a \textit{function approximation}, emphasizing we are trying to approximate a function whose input is $x$ and output is $y$.
-The function from $X$ to $Y$ can be any type, but in linear regression, as the name implies, we assume this function is linear, which means $Y$ is approximately linear to $X$.
+The function from $x$ to $y$ can be any type, but in linear regression, as the name implies, we assume this function is linear, which means $Y$ is approximately linear to $X$.
 \begin{equation}
 y \approx wx+b
 \end{equation}
 
-In this equation, $w$ is usually called \textit{coefficient} in statistics and \textit{weight} is machine learning, while $b$ is usually called \textit{intercept} in in statistics and \textit{bias} is machine learning.
+In this equation, $w$ is usually called \textit{coefficient} in statistics and \textit{weight} in machine learning, while $b$ is usually called \textit{intercept} in in statistics and \textit{bias} in machine learning.
 The predicted or modeled outcome $wx+b$ is often denoted as $\hat y$.
 \begin{equation}
 \hat y = wx+b
 \end{equation}
 
-In the simplest case, when $X$ only has one attribute, like out example, ``the width of bookshelf'', then $w$ is one single scalar.
+In the simplest case, when $X$ only has one attribute, like in our example, ``the width of bookshelf'', then $w$ is one single scalar.
 This is often called \textit{simple linear regression (SLR)} in statistics.
 \begin{equation}
 \begin{bmatrix}\hat y_1 \\ \hat y_2 \\ ... \\ \hat y_n\end{bmatrix}
@@ -137,7 +139,7 @@ x_{n, 1} & x_{n, 2} & ... & x_{n, k} \\
 +b
 \end{equation}
 
-For simplicity, we can also incorporate bias $b$ into this vector by adding a column of 1 as the first column of $X$ and replacing $b$ with $w_0$.
+For simplicity, we can also incorporate bias $b$ into vector $w$ by adding a column of 1 as the first column of $X$ and replacing $b$ with $w_0$.
 \begin{equation}
 \begin{bmatrix}\hat y_1 \\ \hat y_2 \\ ... \\ \hat y_n\end{bmatrix}
  = \begin{bmatrix}
@@ -156,7 +158,7 @@ This equation can then be written as matrix forms.
 
 Now we have a math representation of the linear regression problem.
 The true outcome is $Y = [y_1, y_2, ..., y_n]$ and the predicted outcome is $\hat Y = [ \hat y_1, \hat y_2, ..., \hat y_n]$.
-Our task is ``finding the proper $w = [w_0, w_1, w_2, ..., w_k]$ so that $\hat Y$ is as close to $Y$ as possible''.
+Our task is then to finding the proper $w = [w_0, w_1, w_2, ..., w_k]$ so that $\hat Y$ is as close to $Y$ as possible.
 
 \section{How far away is $\hat Y$ from $Y$?}
 To achieve our task, the first thing we need to do is to define what do we mean by ``close''.
@@ -176,11 +178,11 @@ First we ask this question: what is the worst prediction $\hat Y$ a reasonable p
 
 Admittedly, we can make a lot of arbitrarily bad predictions of $\hat Y$ that is absurdly not close to $Y$ at all.
 However, as \textit{reasonable} people,  we can probably all agree that there is a baseline for $\hat Y$ which is $\bar y$, the mean value of $Y$.
-In our bookshelf example, this means for any new bookshelf, we will just use the average plywood thickness of existing bookshelves, regardless of the width of the new bookshelf.
+In our bookshelf example, this means we will just use the average plywood thickness of existing bookshelves for any new bookshelf regardless of the width.
 This choice might be wrong, but the point is that it is not absurdly wrong.
 Usually, we can use this ``wrong'' answer as a baseline for further improvement.
 
-In math expression, guess everything as the mean of $Y$ is basically let $w_0$ be the average of $Y$ and let all other $w_i$ be 0.
+In math expression, predicting everything as the mean of $Y$ is basically let $w_0$ be the average of $Y$ and let all other $w_j$ be 0.
 \begin{equation}
 \begin{bmatrix}\hat y_1 \\ \hat y_2 \\ ... \\ \hat y_n\end{bmatrix}
  = \begin{bmatrix}
@@ -206,7 +208,7 @@ In Figure~\ref{fig:sst}, the ``distance'' between these two is visualized as ver
 This distance can be defined quantitatively as the sum of square of the length of these vertical lines and is denoted as $SS_T$, which stands for \textit{total sum of squares}.
 In some way, we can think of $SS_T$ as a baseline of our model.
 A reasonable model should be at least works better than this.
-In our example, all three data sets happen to have similar $SS_T$ of around 4200 to 4300.
+In our example, all three data sets happen to have similar $SS_T$ of around 4150 to 4300.
 \begin{equation}
 SS_T = \sum_{i = 1}^n (y_i - \bar y) ^2 
 \end{equation}
@@ -221,16 +223,17 @@ For now, let's assume we somehow get these $w_i$ magically and the predicted $\h
 \end{figure}
 
 Here comes our second question: how much better is our model compared to baseline?
-Our model predicts the outcome as $\hat Y = [\hat y_1, \hat y_2, ..., \hat y_n]$ instead of $[\bar y, \bar y, ..., \bar y]$, so the ``distance'' between our model and the baseline is $SS_R$, which stands for \textit{regression sum of squares} (also called \textit{explained sum of squares}).
+Our model predicts the outcome as $\hat Y = [\hat y_1, \hat y_2, ..., \hat y_n]$ instead of $[\bar y, \bar y, ..., \bar y]$.
+The ``distance'' between our model and the baseline is $SS_R$, which stands for \textit{regression sum of squares} (also called \textit{explained sum of squares}).
 \begin{equation}
 SS_R= \sum_{i = 1}^n (\hat y_i - \bar y) ^2 
 \end{equation}
 
-Figure~\ref{fig:ssr} visualized the concept of $SS_R$, which is the sum of squares of the length of vertical lines.
+Figure~\ref{fig:ssr} visualizes the concept of $SS_R$, which is the sum of squares of the length of vertical lines.
 We can think of $SS_R$ as how much better our model is compared with the baseline.
 In other words, $SS_R$ tells us how helpful our model is.
 For example, for the leftmost data set, $SS_R$ is 105 and $\hat y$ is not significantly different from $\bar y$.
-This tells us this model is not super helpful as there is no significant difference between using $\hat y$ and simply using $\bar y$.
+This tells us this model is not very helpful as there is no significant difference between using $\hat y$ and simply using $\bar y$.
 In contrast, for the rightmost data set, $SS_R$ is 3900 which tells us that this model is pretty useful as using $\hat y$ is significantly different (hopefully better) than simply using $\bar y$.
 \begin{figure}[htbp]
 	\centering
@@ -248,10 +251,10 @@ The distance from our model to absolute perfectness is $SS_E$, which stands for 
 SS_E = \sum_{i = 1}^n (y_i - \hat y_i) ^2 
 \end{equation}
 
-Figure~\ref{fig:sse} visualized the concept of $SS_R$, which is the sum of squares of the length of vertical lines.
-Smaller $SS_E$ is, the less ``error'', the closer our model is to perfectness.
-For example, $SS_E$ of the rightmost case is 235, which the smallest among the three cases.
-Correspondingly, $\hat y$ of the rightmost case is very close to its $y$ visually.
+Figure~\ref{fig:sse} visualizes the concept of $SS_E$, which is the sum of squares of the length of vertical lines.
+The smaller $SS_E$ is, the less ``error'', the closer our model is to perfection.
+For example, $SS_E$ of the rightmost case is 235, which is the smallest among the three sets.
+Correspondingly, $\hat y$ of the rightmost case is the  closest to its $y$ visually.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.98\textwidth]{figures/comparison-sse.png}
@@ -278,14 +281,13 @@ For most of linear regression, in theory, it can be approved that
 \begin{equation}
 SS_T = SS_R + SS_E
 \end{equation}
-In some sense, $SS_T$ is the distance from the baseline to perfection, $SS_R$ is the distance from the baseline to our model, and $SS_E$ is the distance from our model to perfection.
-
+In some sense, $SS_T$ is the distance from baseline to perfection, $SS_R$ is the distance from the baseline to our model, and $SS_E$ is the distance from our model to perfection.
 A variable called R-Squared ($R^2$) is then defined as 
 \begin{equation}
 R^2 = 1 - \frac{SS_E}{SS_T} = \frac{SS_R}{SS_T}
 \end{equation}
 
-R-Squared is bound between 0 and 1. The closer to 0, the closer our model is to baseline; the closer to 1, the closer our model is to perfectness.
+R-Squared is bounded between 0 and 1. The closer to 0, the closer our model is to baseline; the closer to 1, the closer our model is to perfectness.
 For our example, as listed in the table, R-Squared is 2.4\%, 28.4\%, and 94.4\% respectively.
 \begin{figure}[htbp]
 	\centering
@@ -295,12 +297,12 @@ For our example, as listed in the table, R-Squared is 2.4\%, 28.4\%, and 94.4\% 
 \end{figure}
 
 The higher R-Squared is, the more the data is \textit{explained} or \textit{reflected} in the prediction.
-If the R-Squared is too small, such as the leftmost case, then it probably indicates that linear regression is not a suitable tool for this problem.
+If R-Squared is too small, such as the leftmost case, then it probably indicates that linear regression is not a suitable tool for this problem.
 The rightmost case is usually \textit{too good to be true} for most of the complex problems in real-world.
-Most of the time, especially if the data involve human behavior like economics, R-Squared of around 30\% is often considered to be good. 
+Most of the time, especially for data involve human behavior like economics, R-Squared of around 30\% is often considered to be good. 
 
-Back to our task, now we can define out task as to find $w$ that achieves the largest R-Squared possible.
-Since $SS_T$ is a constant value of problem only involves $y$ and $\bar y$ regardless the choice of our model, our task is then simply to minimize $SS_E$.
+Back to our task, now we can define out task as to find $w$ that achieves the highest R-Squared possible.
+Since $SS_T$ is a constant value of a problem which only involves $y$ and $\bar y$ regardless the choice of our model, our task is then simply to minimize $SS_E$.
 
 \section{How do we minimize $SS_E$?}
 As we explained above, $SS_E$ indicates the distance between our model and perfection, and thus we would like to minimize it.
@@ -321,9 +323,9 @@ The problem is then: given $x_{i, j}$ and $y_i$, find $w_j$ that minimize $SS_E$
 This is one example of optimization problems, which can be solved by many methods.
 For linear regression, there is one particular effective method: \textit{gradient descent}.
 
-The basic idea of gradient descent it to find the derivative between $SS_E$ and $w_j$, and gradually changing $w_j$ to the desired direction.
-In other words, if increase of $w_j$ would decrease $SS_E$, we will increase $w_j$ by a little bit and see how it goes. 
-In contrast, if increase of $w_j$ would increase $SS_E$,we will decrease $w_j$ by a little bit and see how it goes. 
+The basic idea of gradient descent it to find the derivative or gradient between $SS_E$ and $w_j$, and gradually changing $w_j$ to the desired direction.
+In other words, if increase of $w_j$ would decrease $SS_E$, we will increase $w_j$ by a little bit. 
+In contrast, if increase of $w_j$ would increase $SS_E$, we will instead  decrease $w_j$ by a little bit. 
 \begin{equation}
 \begin{split}
 \frac{\partial SS_E}{\partial w_j} & = \frac{\partial}{\partial w_j} \sum_{i = 1}^n (y_i - \hat y_i) ^2 \\
@@ -386,7 +388,7 @@ Notice in this equation, since $\frac{\partial SS_E}{\partial w_j} < 0$, $w_j$ m
 This is one step of gradient descent. 
 To find the optimal $w$, we iterate over and over again, moving $w_j$ along the desired direction bit by bit from iteration to iteration.
 Eventually, every $w_j$ converges to its optimal value.
-To check if gradient descent is converged, we can monitor the value of $SS_E$.
+To decide if gradient descent is converged, we can monitor the value of $SS_E$.
 If $SS_E$ does not decrease from iteration to iteration or if the decrease is too small, we can conclude the iterations are converged and there is no need to continue updating $w$.
 
 \section{Implement gradient descend in Python}
@@ -431,7 +433,7 @@ class LinearRegression:
 \end{lstlisting}
 
 One difference between the previous equations and the code is that we use $MS_E$ in the code rather than $SS_E$.
-In the code, $MS_E$ is simply defined as $\frac{SS_E}{n}$.
+In the code, $MS_E$ is simply calculated as $\frac{SS_E}{n}$.
 As $n$ is a constant for given data, the derivative of $MS_E$ to $w$ is then
 \begin{equation}
 \frac{\partial MS_E}{\partial w_j} = -\frac{2}{n} (Y - \hat Y)X
@@ -446,14 +448,14 @@ Choosing proper learning rate is crucial for a successful linear regression.
 We will talk about how we can actually determine learning rate later in this post.
 
 \section{Visualization of gradient descent}
-Let's use the third data set in our example data to visualize the gradient descent.
-For now, suppose we somehow can magically determine the proper learning rate.
+Let's use the third example data set to visualize gradient descent.
+For now, suppose we can somehow magically determine the proper learning rate.
 
-In this example, the learning rate $\alpha$ is set as 0.007 for $w_0$ and 0.0001 for $w_2$.
+In this example, the learning rate $\alpha$ is set as 0.007 for $w_0$ and 0.0001 for $w_1$.
 At the beginning, we do not know much about $w$, so one method to initialize is to set all $w_j$ to be zero.
 In our example, this means we start with $\hat y = 0 x + 0$.
 In this case, we are far away from the true $y$ with a $SS_E$ of 15960.
-So we calculated the gradient of $w_j$ using
+We calculated the gradient of $w_j$ using
 \begin{equation}
 \frac{\partial MS_E}{\partial w_j} = -\frac{2}{n} (Y - \hat Y)X
 \end{equation}
@@ -534,7 +536,7 @@ In the previous section, we somehow magically get the learning rate for $w_j$.
 But we haven't talk about how to choose learning rate yet, so our next question is what is a proper learning rate?
 In gradient descent, we use learning rate $\alpha$ to update weights $w$.
 To successfully and effectively converge to an optimal solution, learning rate has to be proper.
-Figure~\ref{fig:difflr} illustrates the effects of learning rates on one particular example data set.
+Figure~\ref{fig:difflr} illustrates the effects of different learning rates on one particular example data set.
 Different learning rates start from the same initial MSE but result in different learning behaviors.
 \begin{figure}[htbp]
 	\centering
@@ -579,10 +581,10 @@ For linear regression, it is not required to use scaled data.
 However, our code still scales and centers data before training.
 
 The first reason is that this helps our autonomous tuning of learning rate.
-If the data are not scaled, the numerical range of different attributes may be significantly different and thus the proper learning rate for each attribute might be considerably different.
-By scaling the data, we are able to apply the same learning rate on all data attribute. 
+If the data are not scaled, the numerical range of different attributes may be significantly different and thus the proper learning rate for each attribute may be considerably different.
+By scaling $x$, we are able to apply the same learning rate on all data attribute. 
 
-The second reason is that several advanced methods, which are based on linear regression, such as LASSO, rigid regression, and elastic net, all require the data to be scaled.
+The second reason is that several advanced methods, which are based on linear regression, such as LASSO, rigid regression, and elastic net, require the data to be scaled.
 To use our code as the foundation of these methods in the further, we apply data scaling and centering in our code.
 \begin{lstlisting}
 class LinearRegression:
@@ -618,19 +620,20 @@ We use the following API to train and utilize the learner.
         x_test = self.standard_transform(x)
         return np.matmul(x_test, self.weights)
 \end{lstlisting}
+If user specifies a learning rate, that learning rate is used in gradient descent. Otherwise, the code determines a proper learning rate by calling the \textit{tune\_learning\_rate function}.
 
-Using this API, for given training and testing data sets, a learner can be built and trained using the following code:
+Because we scaled training data before gradient descant, the weights are corresponds to the scaled data. 
+As a result, when we utilize the learner on new test data, these new test data need to be scaled the same way.
+
+Using this API, for given training and testing data sets, a learner can be built and trained using the following code. We can then utilize the learner on new testing data and get predicted y of testing x.
 \begin{lstlisting}
 learner = LinearRegression(x_train, y_train, plot=plot, verbose=True)
 learner.fit()
 \end{lstlisting}
-To validate the learner by training data set, we can get predicted y of training x.
-\begin{lstlisting}
-y_pred_train = learner.predict(x_train)
-\end{lstlisting}
+
 To utilize the learning on testing data set, we can get predicted y of testing x.
 \begin{lstlisting}
-y_pred_test = learner.predict(x_test)
+y_pred = learner.predict(x)
 \end{lstlisting}
 
 \section{Example using \textit{diamonds} data set}
@@ -715,9 +718,9 @@ We also learn that the higher the clarity grade, the more the value, which also 
 For color, the lower the color scale, the more the value, which probably indicates people prefer colorless diamonds.
 
 \section{How confident are we?}
-In our elevator pitch, we present the linear equation above and we talk about the relation between price and weight, clarity, or color.
-However, there is one an important question: how sure are we?
-In more technical words, in statistics, is our model significant enough?
+In our elevator pitch, we present the linear equation above and we talk about the relation between value and weight, clarity, or color.
+However, there is an important question: how sure are we?
+In statistics words, is our model significant enough?
 
 To answer this question, we can perform a \textit{significance test}.
 We still use $n$ as the number of data instances and $k$ as the number of data attributes.
@@ -728,9 +731,9 @@ R^2 = 1 - \frac{SS_E}{SS_T} = \frac{SS_R}{SS_T}
 \end{equation}
 
 One drawback of using R-Squared is that it is compromised by increasing number of attributes.
-If the number of attributes is huge, then we can find $w$ that generate a very small $SS_E$ and thus a very large R-Squared.
+If the number of attributes is huge, then we can find $w$ that generate a very small $SS_E$ and thus a very high R-Squared.
 However, this does not always indicate that our model is perfect.
-As there are so many random effects in these huge number of attributes, the model captured almost all of these random effect to achieve a high R-Squared.
+As there are so many random effects in these huge numbers of attributes, the model captures almost all of these random effects to achieve a high R-Squared.
 In machine learning, this is an example of \textit{overfitting}.
 To overcome this, we introduce an adjusted version of R-Squared to deal with this.
 
@@ -761,8 +764,8 @@ R_{\text{adjusted}}^2 &= 1 - \frac{MS_E}{MS_T}\\
 \end{equation}
 
 We can see that adjusted R-Squared decreases as $k$ increases.
-In some sense, we can say using adjusted R-Squared encourages models with less data attributes.
-In other words, if two models achieve same R-Squared, but one with a significantly smaller number of attributes, then this one will have a smaller adjusted R-Squared and that tells us this model is better than the other one.
+In some sense, we can say adjusted R-Squared encourages models with smaller number of data attributes.
+In other words, if two models achieve same R-Squared, but one with a significantly smaller number of attributes, then this one will have a smaller adjusted R-Squared and thus is preferable than the other one.
 
 R-Squared and adjusted R-Squared can be calculated using the following code.
 \begin{lstlisting}
@@ -785,7 +788,7 @@ r_square = 1 - ss_error / ss_total
 adj_r_square = 1 - ms_error / ms_total
 \end{lstlisting}
 
-In our \textit{diamonds} example, the R-Squared turns out to be 60.38\% and the adjusted R-Squared turns out to be 59.28\%.
+In our \textit{diamonds} example, the R-Squared turns out to be 63.67\% and the adjusted R-Squared turns out to be 62.92\%.
 
 Now we are ready to perform the significance test.
 For linear regression, we usually use a F-test to assess the significance.
@@ -797,7 +800,7 @@ F = \frac{MS_R}{MS_E}
 Using this \textit{F-statistic}, we can then determine the corresponding $P$ value.
 To do that, first we need to determine the degree of freedom (dof) of the F-distribution.
 In linear regression, the first dof is $k$ and the second dof is $n - (k+1)$.
-In our \textit{diamonds} example, we are looking at first dof of 3 and second dof of 108.
+In our \textit{diamonds} example, we are looking at first dof of 3 and second dof of 146.
 The F-distribution and the corresponding survival function is plotted in the Figure~\ref{fig:f-test}.
 \begin{figure}[htbp]
 	\centering
@@ -808,8 +811,8 @@ The F-distribution and the corresponding survival function is plotted in the Fig
 
 When $F=2.689$, the area under the probability density curve on the right side of 2.689 is 0.05, indicating a $F$ value of 2.689 corresponds to a $P$ value of 0.05.
 Similarly, the area under the probability density curve on the right side of 2.135 is 0.10, indicating a corresponding $P$ value of 0.10.
-In our \textit{diamonds} example, our $F$ turns out to be 54.883, which is way to the right of our plot.
-As a result, the P-value is extremely small.
+In our \textit{diamonds} example, our $F$ turns out to be 85.293, which is way on the right side of our plot.
+As a result, the corresponding P-value is extremely small.
 
 P-value has strict definitions in statistics which we will not go into details today.
 What we need to know is that P-value indicates the probability that the reason why our model performs this well is purely by luck.
@@ -882,6 +885,7 @@ X^T X w - X^T Y = 0
 
 We then solve this equation for $w$.
 The $w$ that makes the gradient to be zero is usually called $\hat w$.
+In other words, among all possible $w$, $\hat w$ is the one that makes $\hat Y = Xw$ as close to $Y$ as possible.
 \begin{equation}
 X^T X \hat w = X^T Y
 \end{equation}
@@ -892,21 +896,20 @@ X^T X \hat w = X^T Y
 \hat w= (X^T X)^{-1}X^T Y
 \end{equation}
 
-In other words, among all possible $w$, $\hat w$ is the one that makes $\hat Y = Xw$ as close to $Y$ as possible.
+
 Put $\hat w$ into the equation, we can get
 \begin{equation}
-\hat Y = X\hat w= X(X^T X)^{-1}X^T Y
+\hat Y = X\hat w= X(X^T X)^{-1}X^T Y=HY
+\end{equation}
+where
+\begin{equation}
+H= X(X^T X)^{-1}X^T
 \end{equation}
 
-If we let
+Here we have a transformation from $Y$ to $\hat Y$.
 \begin{equation}
-H= X\hat w= X(X^T X)^{-1}X^T
+\hat Y  = HY
 \end{equation}
-then we have a transformation from $Y$ to $\hat Y$.
-\begin{equation}
-\hat Y = [X(X^T X)^{-1}X^T] Y = HY
-\end{equation}
-
 Some people call $H$ the \textit{hat matrix} as it puts the hat on $Y$.
 
 The term $(X^T X)^{-1}$ corresponds to the variances of $w$ and is usually denoted as $C$.

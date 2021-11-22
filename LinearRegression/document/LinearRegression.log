@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.8.6)  22 NOV 2021 01:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.8.6)  22 NOV 2021 05:31
 entering extended mode
 **./LinearRegression.tex
 (LinearRegression.tex
@@ -380,7 +380,7 @@ LaTeX Warning: No \author given.
 [1
 
 {C:/Users/Nan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Overfull \hbox (8.35916pt too wide) in paragraph at lines 157--160
+Overfull \hbox (8.35916pt too wide) in paragraph at lines 159--162
 \OT1/cmr/m/n/10 true out-come is $\OML/cmm/m/it/10 Y \OT1/cmr/m/n/10 = [\OML/cm
 m/m/it/10 y[]; y[]; :::; y[]\OT1/cmr/m/n/10 ]$ and the pre-dicted out-come is $
 [] = [[]\OML/cmm/m/it/10 ; []; :::; []\OT1/cmr/m/n/10 ]$.
@@ -388,39 +388,39 @@ m/m/it/10 y[]; y[]; :::; y[]\OT1/cmr/m/n/10 ]$ and the pre-dicted out-come is $
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 161.
+(hyperref)                removing `math shift' on input line 163.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 161.
+(hyperref)                removing `math shift' on input line 163.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 161.
+(hyperref)                removing `math shift' on input line 163.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 161.
+(hyperref)                removing `math shift' on input line 163.
 
 <figures/comparison-raw-data.png, id=99, 722.7pt x 216.81pt>
 File: figures/comparison-raw-data.png Graphic file (type png)
 <use figures/comparison-raw-data.png>
 Package pdftex.def Info: figures/comparison-raw-data.png  used on input line 17
-0.
+2.
 (pdftex.def)             Requested size: 338.09853pt x 101.43094pt.
 [3]
 <figures/comparison-sst.png, id=113, 722.7pt x 216.81pt>
 File: figures/comparison-sst.png Graphic file (type png)
 <use figures/comparison-sst.png>
-Package pdftex.def Info: figures/comparison-sst.png  used on input line 201.
+Package pdftex.def Info: figures/comparison-sst.png  used on input line 203.
 (pdftex.def)             Requested size: 338.09853pt x 101.43094pt.
 <figures/comparison-yhat.png, id=115, 722.7pt x 216.81pt>
 File: figures/comparison-yhat.png Graphic file (type png)
 <use figures/comparison-yhat.png>
-Package pdftex.def Info: figures/comparison-yhat.png  used on input line 218.
+Package pdftex.def Info: figures/comparison-yhat.png  used on input line 220.
 (pdftex.def)             Requested size: 338.09853pt x 101.43094pt.
 
-Overfull \hbox (2.05475pt too wide) in paragraph at lines 214--222
+Overfull \hbox (2.05475pt too wide) in paragraph at lines 216--224
 []\OT1/cmr/m/n/10 In our model, we have $[\OML/cmm/m/it/10 w[]; w[]; w[]; :::; 
 w[]\OT1/cmr/m/n/10 ]$ which are dif-fer-ent from $[[]\OML/cmm/m/it/10 ; \OT1/cm
 r/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; :::; \OT1/cmr/
@@ -431,43 +431,43 @@ m/n/10 0]$
 <figures/comparison-ssr.png, id=126, 722.7pt x 216.81pt>
 File: figures/comparison-ssr.png Graphic file (type png)
 <use figures/comparison-ssr.png>
-Package pdftex.def Info: figures/comparison-ssr.png  used on input line 237.
+Package pdftex.def Info: figures/comparison-ssr.png  used on input line 240.
 (pdftex.def)             Requested size: 338.09853pt x 101.43094pt.
  [5 <./figures/comparison-sst.png> <./figures/comparison-yhat.png>]
 <figures/comparison-sse.png, id=136, 722.7pt x 216.81pt>
 File: figures/comparison-sse.png Graphic file (type png)
 <use figures/comparison-sse.png>
-Package pdftex.def Info: figures/comparison-sse.png  used on input line 257.
+Package pdftex.def Info: figures/comparison-sse.png  used on input line 260.
 (pdftex.def)             Requested size: 338.09853pt x 101.43094pt.
  [6 <./figures/comparison-ssr.png> <./figures/comparison-sse.png>]
 <figures/comparison-rsquared.png, id=153, 722.7pt x 216.81pt>
 File: figures/comparison-rsquared.png Graphic file (type png)
 <use figures/comparison-rsquared.png>
 Package pdftex.def Info: figures/comparison-rsquared.png  used on input line 29
-2.
+4.
 (pdftex.def)             Requested size: 338.09853pt x 101.43094pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 305.
+(hyperref)                removing `math shift' on input line 307.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 305.
+(hyperref)                removing `subscript' on input line 307.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 305.
+(hyperref)                removing `math shift' on input line 307.
 
 [7 <./figures/comparison-rsquared.png>] [8] [9]
-Overfull \hbox (29.21887pt too wide) in paragraph at lines 404--405
+Overfull \hbox (29.21887pt too wide) in paragraph at lines 406--407
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
  
  []
 
 
-Overfull \hbox (102.92865pt too wide) in paragraph at lines 420--421
+Overfull \hbox (102.92865pt too wide) in paragraph at lines 422--423
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][] 
  []
@@ -476,142 +476,143 @@ Overfull \hbox (102.92865pt too wide) in paragraph at lines 420--421
 <figures/visualize-0.png, id=222, 289.08pt x 216.81pt>
 File: figures/visualize-0.png Graphic file (type png)
 <use figures/visualize-0.png>
-Package pdftex.def Info: figures/visualize-0.png  used on input line 469.
+Package pdftex.def Info: figures/visualize-0.png  used on input line 471.
 (pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
 <figures/visualize-1.png, id=223, 289.08pt x 216.81pt>
 File: figures/visualize-1.png Graphic file (type png)
 <use figures/visualize-1.png>
-Package pdftex.def Info: figures/visualize-1.png  used on input line 487.
+Package pdftex.def Info: figures/visualize-1.png  used on input line 489.
 (pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
  [11 <./figures/visualize-0.png>]
 <figures/visualize-2.png, id=233, 289.08pt x 216.81pt>
 File: figures/visualize-2.png Graphic file (type png)
 <use figures/visualize-2.png>
-Package pdftex.def Info: figures/visualize-2.png  used on input line 505.
+Package pdftex.def Info: figures/visualize-2.png  used on input line 507.
 (pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
  [12 <./figures/visualize-1.png> <./figures/visualize-2.png>]
 <figures/visualize-3.png, id=243, 289.08pt x 216.81pt>
 File: figures/visualize-3.png Graphic file (type png)
 <use figures/visualize-3.png>
-Package pdftex.def Info: figures/visualize-3.png  used on input line 523.
+Package pdftex.def Info: figures/visualize-3.png  used on input line 525.
 (pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
 <figures/diff-learning-rates.png, id=245, 361.35pt x 216.81pt>
 File: figures/diff-learning-rates.png Graphic file (type png)
 <use figures/diff-learning-rates.png>
 Package pdftex.def Info: figures/diff-learning-rates.png  used on input line 54
-1.
+3.
 (pdftex.def)             Requested size: 252.94499pt x 151.76596pt.
  [13 <./figures/visualize-3.png>]
-Overfull \hbox (91.58868pt too wide) in paragraph at lines 559--560
+Overfull \hbox (91.58868pt too wide) in paragraph at lines 561--562
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (114.26862pt too wide) in paragraph at lines 565--566
+Overfull \hbox (114.26862pt too wide) in paragraph at lines 567--568
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (46.22882pt too wide) in paragraph at lines 566--567
+Overfull \hbox (46.22882pt too wide) in paragraph at lines 568--569
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [14 <./figures/diff-learning-rates.png>]
-Overfull \hbox (91.58868pt too wide) in paragraph at lines 602--603
+Overfull \hbox (91.58868pt too wide) in paragraph at lines 604--605
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
 
  []
 
 
-Overfull \hbox (91.58868pt too wide) in paragraph at lines 614--615
+Overfull \hbox (91.58868pt too wide) in paragraph at lines 616--617
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [15]
-Overfull \hbox (46.22882pt too wide) in paragraph at lines 624--625
+Overfull \hbox (46.22882pt too wide) in paragraph at lines 630--631
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-<figures/tune-lr.png, id=312, 361.35pt x 361.35pt>
+[16]
+<figures/tune-lr.png, id=332, 361.35pt x 361.35pt>
 File: figures/tune-lr.png Graphic file (type png)
 <use figures/tune-lr.png>
-Package pdftex.def Info: figures/tune-lr.png  used on input line 677.
+Package pdftex.def Info: figures/tune-lr.png  used on input line 680.
 (pdftex.def)             Requested size: 172.5pt x 172.49767pt.
-<figures/our-result-diamonds.png, id=314, 289.08pt x 289.08pt>
+<figures/our-result-diamonds.png, id=334, 289.08pt x 289.08pt>
 File: figures/our-result-diamonds.png Graphic file (type png)
 <use figures/our-result-diamonds.png>
-Package pdftex.def Info: figures/our-result-diamonds.png  used on input line 68
-7.
+Package pdftex.def Info: figures/our-result-diamonds.png  used on input line 69
+0.
 (pdftex.def)             Requested size: 172.5pt x 172.49655pt.
-[16] [17 <./figures/tune-lr.png> <./figures/our-result-diamonds.png>]
-Overfull \hbox (131.27856pt too wide) in paragraph at lines 702--703
+ [17 <./figures/tune-lr.png> <./figures/our-result-diamonds.png>]
+Overfull \hbox (131.27856pt too wide) in paragraph at lines 705--706
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (57.56879pt too wide) in paragraph at lines 703--704
+Overfull \hbox (57.56879pt too wide) in paragraph at lines 706--707
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [18] [19]
-<figures/f-test.png, id=381, 289.08pt x 361.35pt>
+<figures/f-test.png, id=379, 289.08pt x 361.35pt>
 File: figures/f-test.png Graphic file (type png)
 <use figures/f-test.png>
-Package pdftex.def Info: figures/f-test.png  used on input line 804.
+Package pdftex.def Info: figures/f-test.png  used on input line 807.
 (pdftex.def)             Requested size: 172.5pt x 215.6207pt.
  [20 <./figures/f-test.png>] [21] [22]
-<figures/t-test.png, id=420, 289.08pt x 361.35pt>
+<figures/t-test.png, id=418, 289.08pt x 361.35pt>
 File: figures/t-test.png Graphic file (type png)
 <use figures/t-test.png>
-Package pdftex.def Info: figures/t-test.png  used on input line 983.
+Package pdftex.def Info: figures/t-test.png  used on input line 986.
 (pdftex.def)             Requested size: 172.5pt x 215.6207pt.
  [23]
-<figures/compare-diamonds.png, id=431, 289.08pt x 289.08pt>
+<figures/compare-diamonds.png, id=429, 289.08pt x 289.08pt>
 File: figures/compare-diamonds.png Graphic file (type png)
 <use figures/compare-diamonds.png>
-Package pdftex.def Info: figures/compare-diamonds.png  used on input line 1021.
+Package pdftex.def Info: figures/compare-diamonds.png  used on input line 1024.
 
 (pdftex.def)             Requested size: 224.2479pt x 224.2464pt.
-<figures/compare-uscrime.png, id=433, 289.08pt x 289.08pt>
+<figures/compare-uscrime.png, id=431, 289.08pt x 289.08pt>
 File: figures/compare-uscrime.png Graphic file (type png)
 <use figures/compare-uscrime.png>
-Package pdftex.def Info: figures/compare-uscrime.png  used on input line 1031.
+Package pdftex.def Info: figures/compare-uscrime.png  used on input line 1034.
 (pdftex.def)             Requested size: 224.2479pt x 224.2464pt.
  [24 <./figures/t-test.png>]
-<figures/compare-BostonHousing.png, id=445, 289.08pt x 289.08pt>
+<figures/compare-BostonHousing.png, id=443, 289.08pt x 289.08pt>
 File: figures/compare-BostonHousing.png Graphic file (type png)
 <use figures/compare-BostonHousing.png>
 Package pdftex.def Info: figures/compare-BostonHousing.png  used on input line 
-1041.
+1044.
 (pdftex.def)             Requested size: 224.2479pt x 224.2464pt.
 
-Overfull \hbox (8.71625pt too wide) in paragraph at lines 1037--1045
+Overfull \hbox (8.71625pt too wide) in paragraph at lines 1040--1048
 \OT1/cmr/m/n/10 The data set \OT1/cmr/m/it/10 Boston-Hous-ing \OT1/cmr/m/n/10 c
 omes from [][]$\OT1/cmtt/m/n/10 https : / / www . cs . toronto . edu / []delve 
 /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1052.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1055.
 [25 <./figures/compare-diamonds.png>] [26 <./figures/compare-uscrime.png> <./fi
 gures/compare-BostonHousing.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1052.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1055.
  (LinearRegression.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1052.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1052.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1055.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1055.
 
 Package rerunfilecheck Info: File `LinearRegression.out' has not changed.
 (rerunfilecheck)             Checksum: 9D34FDE191938E847833FE84257699BE;1168.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1052.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1055.
  ) 
 Here is how much of TeX's memory you used:
- 9456 strings out of 492973
- 137631 string characters out of 3135939
+ 9452 strings out of 492973
+ 137565 string characters out of 3135939
  302975 words of memory out of 3000000
- 12990 multiletter control sequences out of 15000+200000
+ 12988 multiletter control sequences out of 15000+200000
  11731 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,23n,40p,338b,1846s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,23n,40p,326b,1846s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/Mi
@@ -632,9 +633,9 @@ b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on LinearRegression.pdf (26 pages, 2006242 bytes).
+Output written on LinearRegression.pdf (26 pages, 2006200 bytes).
 PDF statistics:
- 584 PDF objects out of 1000 (max. 8388607)
- 248 named destinations out of 1000 (max. 500000)
+ 581 PDF objects out of 1000 (max. 8388607)
+ 246 named destinations out of 1000 (max. 500000)
  235 words of extra memory for PDF output out of 10000 (max. 10000000)
 

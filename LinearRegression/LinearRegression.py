@@ -282,16 +282,19 @@ class LinearRegression:
             pt2_ticks[t_ticks < 0] = 2 * scipy.stats.t.cdf(t_ticks[t_ticks < 0], df2)
 
             t0_5 = np.interp(0.05, pt2_ticks[:len(pt2_ticks)//2], t_ticks[:len(pt2_ticks)//2])
+            t0_1 = np.interp(0.001, pt2_ticks[:len(pt2_ticks) // 2], t_ticks[:len(pt2_ticks) // 2])
 
             fig, axes = plt.subplots(2, 1, sharex='all', figsize=(4, 5), dpi=300)
             axes[0].set_title(f't distribution, df = {df2}')
             axes[0].plot(t_ticks, pt_ticks, 'b', label='Probability density function')
             axes[1].plot(t_ticks, pt2_ticks, color='#2ca02c', alpha=0.7, lw=2, label='p-value')
             axes[1].set_xlabel('t0')
-            axes[1].plot([min(t_ticks), max(t_ticks)], [0.05, 0.05], color='#1f77b4', linestyle='dashed',
+            axes[1].plot([min(t_ticks), max(t_ticks)], [0.05, 0.05], color='#1f77b4', linestyle='dashed', lw=0.5,
                          label=f't0 = {t0_5:.3f} or {-t0_5:.3f}, p = 0.05')
             axes[1].plot([t0_5, t0_5], [0, 0.05], color='#1f77b4', linestyle='dashed')
             axes[1].plot([-t0_5, -t0_5], [0, 0.05], color='#1f77b4', linestyle='dashed')
+            axes[1].plot([min(t_ticks), max(t_ticks)], [0.001, 0.001], color='red', linestyle='dashed',lw=0.5,
+                         label=f't0 = {t0_1:.3f} or {-t0_1:.3f}, p = 0.001')
             for i in range(2):
                 axes[i].axhline(color='black', alpha=0.7)
                 axes[i].legend()
