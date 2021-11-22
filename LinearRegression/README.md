@@ -2,6 +2,8 @@
 ### LinearRegression.py
 A Multi Linear Regression (MLR) method is implemented in LinearRegression.py
 
+More detail: https://medium.com/@ngao7/complete-guide-of-linear-regression-built-from-scratch-fad842a0381d
+
 Under the class **LinearRegression(x, y)**, the following functions are provided:
 - *standard_transform(x)*: center and scale *x* data.
 - *gradient_descent(x, y, lr)*: perform gradient descent on *x* and *y* using the provided learning rate *lr* to determine the weights.
