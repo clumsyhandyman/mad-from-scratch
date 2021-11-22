@@ -113,7 +113,7 @@ class LinearRegression:
             legend_list.append(f'{lr:.0e}')
 
         if self.plot is True:
-            fig, axes = plt.subplots(2, 1, figsize=(4.5, 5), dpi=100)
+            fig, axes = plt.subplots(2, 1, figsize=(5, 5), dpi=100)
 
             axes[0].set_title('Learning curves of different learning rates')
             for i in range(len(lr_list)):
@@ -134,7 +134,7 @@ class LinearRegression:
             axes[1].legend()
 
             plt.tight_layout()
-            plt.show()
+            plt.savefig('tune-lr.png')
 
         return opt_lr
 
@@ -150,14 +150,14 @@ class LinearRegression:
         w, mse_log = self.gradient_descend(self.x_train, self.y_train, lr=lr)
         self.weights = w
         if self.plot is True:
-            fig, ax = plt.subplots(1, 1, figsize=(4, 2.5), dpi=100)
+            fig, ax = plt.subplots(1, 1, figsize=(4, 2.5), dpi=300)
             ax.set_title('Learning curve of linear regression')
             ax.plot(mse_log, marker='.', color='#ff7f0e')
             ax.set_ylabel('MSE')
             ax.set_xlabel('Iteration')
             ax.set_yscale('log')
             plt.tight_layout()
-            plt.show()
+            plt.savefig('learning-curve.png')
         self.significance_test()
 
     def predict(self, x):
@@ -224,6 +224,7 @@ class LinearRegression:
         se = np.sqrt(np.diagonal(mat_c))
         w = self.get_unscaled_weights()
         t0 = w / se
+
         p_weights = np.zeros(k + 1)
         p_weights[t0 >= 0] = 2 * scipy.stats.t.sf(t0[t0 >= 0], df2)
         p_weights[t0 < 0] = 2 * scipy.stats.t.cdf(t0[t0 < 0], df2)
@@ -249,7 +250,7 @@ class LinearRegression:
         print(f'------------------------------------------------------------------------------')
 
         if self.plot is True:
-            fig, axes = plt.subplots(2, 1, sharex='all', figsize=(4, 5), dpi=100)
+            fig, axes = plt.subplots(2, 1, sharex='all', figsize=(4, 5), dpi=300)
             axes[0].set_title(f'F distribution, df1 = {df1}, df2 = {df2}')
             axes[0].plot(f_ticks, p1_ticks, 'b', label='Probability density function')
             axes[1].plot(f_ticks, p2_ticks, color='#2ca02c', alpha=0.7, lw=2, label='Survival function (p-value)')
@@ -270,7 +271,33 @@ class LinearRegression:
                 axes[i].axvline(color='black', alpha=0.7)
                 axes[i].legend()
             plt.tight_layout()
-            plt.show()
+            plt.savefig('f-test.png')
+
+            t_ticks = np.linspace(scipy.stats.t.ppf(0.999, df2),
+                                  scipy.stats.t.ppf(0.001, df2), 1000)
+            pt_ticks = scipy.stats.t.pdf(t_ticks, df2)
+
+            pt2_ticks = np.zeros(len(t_ticks))
+            pt2_ticks[t_ticks >= 0] = 2 * scipy.stats.t.sf(t_ticks[t_ticks >= 0], df2)
+            pt2_ticks[t_ticks < 0] = 2 * scipy.stats.t.cdf(t_ticks[t_ticks < 0], df2)
+
+            t0_5 = np.interp(0.05, pt2_ticks[:len(pt2_ticks)//2], t_ticks[:len(pt2_ticks)//2])
+
+            fig, axes = plt.subplots(2, 1, sharex='all', figsize=(4, 5), dpi=300)
+            axes[0].set_title(f't distribution, df = {df2}')
+            axes[0].plot(t_ticks, pt_ticks, 'b', label='Probability density function')
+            axes[1].plot(t_ticks, pt2_ticks, color='#2ca02c', alpha=0.7, lw=2, label='p-value')
+            axes[1].set_xlabel('t0')
+            axes[1].plot([min(t_ticks), max(t_ticks)], [0.05, 0.05], color='#1f77b4', linestyle='dashed',
+                         label=f't0 = {t0_5:.3f} or {-t0_5:.3f}, p = 0.05')
+            axes[1].plot([t0_5, t0_5], [0, 0.05], color='#1f77b4', linestyle='dashed')
+            axes[1].plot([-t0_5, -t0_5], [0, 0.05], color='#1f77b4', linestyle='dashed')
+            for i in range(2):
+                axes[i].axhline(color='black', alpha=0.7)
+                axes[i].legend()
+            plt.tight_layout()
+            plt.savefig('t-test.png')
+
 
 
 

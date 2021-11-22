@@ -3,10 +3,16 @@
 \BOOKMARK [1][-]{section.3}{How far away is \040from Y?}{}% 3
 \BOOKMARK [1][-]{section.4}{How do we minimize SSE?}{}% 4
 \BOOKMARK [1][-]{section.5}{Implement gradient descend in Python}{}% 5
-\BOOKMARK [1][-]{section.6}{What is a proper learning rate?}{}% 6
-\BOOKMARK [1][-]{section.7}{Scale data before training}{}% 7
-\BOOKMARK [1][-]{section.8}{API of the learner}{}% 8
-\BOOKMARK [1][-]{section.9}{Example using diamonds data set}{}% 9
-\BOOKMARK [1][-]{section.10}{How do we interpolate the learning?}{}% 10
-\BOOKMARK [1][-]{section.11}{How confident are we?}{}% 11
-\BOOKMARK [1][-]{section.12}{Are every attribute relevant?}{}% 12
+\BOOKMARK [1][-]{section.6}{Visualization of gradient descent}{}% 6
+\BOOKMARK [1][-]{section.7}{What is a proper learning rate?}{}% 7
+\BOOKMARK [1][-]{section.8}{Scale data before training}{}% 8
+\BOOKMARK [1][-]{section.9}{API of the learner}{}% 9
+\BOOKMARK [1][-]{section.10}{Example using diamonds data set}{}% 10
+\BOOKMARK [1][-]{section.11}{How do we interpolate the learning?}{}% 11
+\BOOKMARK [1][-]{section.12}{How confident are we?}{}% 12
+\BOOKMARK [1][-]{section.13}{Is every attribute relevant?}{}% 13
+\BOOKMARK [1][-]{section.14}{Compare our code to existing packages with more examples}{}% 14
+\BOOKMARK [2][-]{subsection.14.1}{diamonds}{section.14}% 15
+\BOOKMARK [2][-]{subsection.14.2}{uscrime}{section.14}% 16
+\BOOKMARK [2][-]{subsection.14.3}{BostonHousing}{section.14}% 17
+\BOOKMARK [1][-]{section.15}{Summary}{}% 18
