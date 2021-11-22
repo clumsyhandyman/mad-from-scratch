@@ -12,10 +12,10 @@ Under the class **LinearRegression(x, y)**, the following functions are provided
 - *significance_test()*: perform significance tests and then output F-statistic, P-value of the regression model, R-squared, adjusted R-squared, t-value and P-value of each weights.
 
 
-### test_random_data.py
+### test-random-data.py
 Unittest of *LinearRegression* using randomly generated data.
 
-### test_datasets.py
+### test-datasets.py
 Apply *LinearRegression* on existing data sets:
 - *uscrime*: http://www.statsci.org/data/general/uscrime.html
 - *BostonHousing*: https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html
