@@ -910,9 +910,9 @@ Here we have a transformation from $Y$ to $\hat Y$.
 \begin{equation}
 \hat Y  = HY
 \end{equation}
-Some people call $H$ the \textit{hat matrix} as it puts the hat on $Y$.
+Some people call $H$ the \textit{hat matrix} as it puts the hat on $Y$ and makes it into $\hat Y$.
 
-The term $(X^T X)^{-1}$ corresponds to the variances of $w$ and is usually denoted as $C$.
+A matrix corresponds to the variances of $w$ is usually denoted as $C$.
 \begin{equation}
 C = MS_E (X^T X)^{-1}
 \end{equation}
@@ -988,8 +988,7 @@ As shown in the following figure, for a two-tailed t-test, a critical p-value of
 	\label{fig:t-test}
 \end{figure}
 
-Compare this to our four weights, we can determine that the first three weights have p-values significantly smaller than 0.05, indicating that it is very unlikely to get them by luck.
-In contrast, the last weight $w_3$ has a p-value of 0.21, which is greater than 0.05, and thus not significant in terms of statistics.
+Compare this to our four weights, we can determine that the t-values of all first three weights are larger than 3.147, resulting p-values significantly smaller than 0.001, indicating that it is very unlikely to get them by luck. In contrast, the last weight w[3] has a p-value of 0.21, which is greater than 0.05, and thus not significant in terms of statistics.
 
 What does this tell us?
 The last weight, $w_3$, corresponds to the data attribute color scale. 
@@ -1000,7 +999,7 @@ We will cover more advanced methods to properly deciding which attributes to inc
 
 \section{Compare our code to existing packages with more examples}
 Let's compare the results of our code to those of existing packages.
-We choose \textit{sklearn.linear\_model.LinearRegression} in \textit{Python} and \textit{lm} in \textit{R} to compare.
+We choose \textit{sklearn.linear\_model.LinearRegression} in \textit{Python} and \textit{lm} in \textit{R} to compare with.
 
 \subsection{diamonds}
 We already performed our liner regression code on \textit{diamonds} and we got the following result with $R^2 = 63.67\%$.
@@ -1018,7 +1017,7 @@ Using lm in R, we get the following result with $R^2 = 63.73\%$.
 \text{diamond value} = 148.33 + 2.19 (\text{weight}) + 21.69(\text{clarity})-0.45(\text{color})
 \end{equation}
 
-As plotted in Figure~\ref{fig:compare-diamonds}, majority of these three results overlapp with each other. 
+As plotted in Figure~\ref{fig:compare-diamonds}, majority of these three results overlap with each other. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.65\textwidth]{figures/compare-diamonds.png}

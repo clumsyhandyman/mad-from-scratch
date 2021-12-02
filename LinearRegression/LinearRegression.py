@@ -210,13 +210,6 @@ class LinearRegression:
         f_5 = np.interp(0.05, p2_ticks, f_ticks)
         f_10 = np.interp(0.10, p2_ticks, f_ticks)
 
-        if np.min(f_ticks) <= f_ans <= np.max(f_ticks):
-            p_string = f'{p_ans:.3f}'
-        elif f_ans > np.max(f_ticks):
-            p_string = '< 0.001'
-        else:
-            p_string = '> 0.999'
-
         x = self.x_raw
         x = np.insert(x, 0, np.ones(x.shape[0]), axis=1)
         mat_c = np.linalg.inv(np.matmul(np.transpose(x), x)) * ms_error
@@ -235,7 +228,7 @@ class LinearRegression:
         print(f'Variation  \t|\t Freedom  \t|\t Squares  \t|\t Squares  \t|\tStatistic \t|\tValue')
         print(f'-----------------------------------------------------------------------------------------')
         print(f'Regression \t|\t{k:10}\t|\t{ss_regression:10.4e}\t|\t{ms_regression:10.4e}\t|\t{f_ans:10.4e}'
-              f'\t|\t{p_string}')
+              f'\t|\t{p_ans:10.4e}')
         print(f'Error      \t|\t{n - k - 1:10}\t|\t{ss_error:10.4e}\t|\t{ms_error:10.4e}\t|\t')
         print(f'Total      \t|\t{n - 1:10}\t|\t{ss_total:10.4e}\t|\t{ms_total:10.4e}\t|\t')
         print(f'-----------------------------------------------------------------------------------------')
@@ -261,11 +254,11 @@ class LinearRegression:
             axes[1].plot([f_5, f_5], [0, 0.05], color='red')
             if np.min(f_ticks) <= f_ans <= np.max(f_ticks):
                 axes[1].plot([0, f_ans], [p_ans, p_ans], color='#1f77b4', linestyle='dashed',
-                             label=f'F = {f_ans:.3f}, p = {p_string}')
+                             label=f'F = {f_ans:.3f}, p = {p_ans:10.4e}')
                 axes[1].plot([f_ans, f_ans], [0, p_ans], color='#1f77b4', linestyle='dashed')
-                axes[1].set_title(f'F = {f_ans:.3f}, p = {p_string}')
+                axes[1].set_title(f'F = {f_ans:.3f}, p = {p_ans:10.4e}')
             else:
-                axes[1].set_title(f'F = {f_ans:.3f}, p {p_string}')
+                axes[1].set_title(f'F = {f_ans:.3f}, p {p_ans:10.4e}')
             for i in range(2):
                 axes[i].axhline(color='black', alpha=0.7)
                 axes[i].axvline(color='black', alpha=0.7)
