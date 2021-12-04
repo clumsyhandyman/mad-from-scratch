@@ -16,7 +16,7 @@ class GridWorld:
         self.num_states = self.num_rows * self.num_cols
         self.num_actions = 4
         self.reward = reward
-        self.reward_table = self.get_reward_table()
+        self.reward_function = self.get_reward_function()
         self.transition_model = self.get_transition_model()
 
     def get_state_from_pos(self, pos):
@@ -25,7 +25,7 @@ class GridWorld:
     def get_pos_from_state(self, state):
         return state // self.num_cols, state % self.num_cols
 
-    def get_reward_table(self):
+    def get_reward_function(self):
         reward_table = np.zeros(self.num_states)
         for r in range(self.num_rows):
             for c in range(self.num_cols):
@@ -58,6 +58,22 @@ class GridWorld:
                     transition_model[s, a, int(neighbor_s[(a + 1) % self.num_actions])] += random_rate / 2.0
                     transition_model[s, a, int(neighbor_s[(a - 1) % self.num_actions])] += random_rate / 2.0
         return transition_model
+
+    def generate_random_policy(self):
+        return np.random.randint(self.num_actions, size=self.num_states)
+
+    def execute_policy(self, policy, start_pos=(2, 0)):
+        s = self.get_state_from_pos(start_pos)
+        r = self.reward_function[s]
+        total_reward = r
+        state_history = [s]
+        while r != 1 and r != -1:
+            temp = self.transition_model[s, policy[s]]
+            s = np.random.choice(self.num_states, p=temp)
+            state_history.append(s)
+            r = self.reward_function[s]
+            total_reward += r
+        return total_reward
 
     def plot_reward(self):
         unit = 100
@@ -97,7 +113,7 @@ class GridWorld:
                                              alpha=0.6)
                     ax.add_patch(rect)
 
-                ax.text(x + 0.5 * unit, y + 0.5 * unit, f's = {s}\nr = {self.reward_table[s]}',
+                ax.text(x + 0.5 * unit, y + 0.5 * unit, f's = {s}\nr = {self.reward_function[s]}',
                         horizontalalignment='center', verticalalignment='center')
 
         plt.tight_layout()
@@ -107,7 +123,7 @@ class GridWorld:
         unit = 100
         fig, ax = plt.subplots(1, 1, figsize=(2 * self.num_cols, 2 * self.num_rows), dpi=300)
         ax.axis('off')
-        ax.set_title('Transition model')
+        ax.set_title('Transitional model')
         for i in range(self.num_cols + 1):
             if i == 0 or i == self.num_cols:
                 ax.plot([i * unit, i * unit], [0, self.num_rows * unit],
@@ -134,13 +150,13 @@ class GridWorld:
                     ax.add_patch(rect)
                 elif self.map[i, j] == 2:
                     rect = patches.Rectangle((x, y), unit, unit, edgecolor='none', facecolor='red',
-                                             alpha=0.3)
+                                             alpha=0.6)
                     ax.add_patch(rect)
                 elif self.map[i, j] == 1:
                     rect = patches.Rectangle((x, y), unit, unit, edgecolor='none', facecolor='green',
-                                             alpha=0.3)
+                                             alpha=0.6)
                     ax.add_patch(rect)
-                if self.map[i, j] == 3:
+                if self.map[i, j] != 0:
                     ax.text(x + 0.5 * unit, y + 0.5 * unit, f's = {s}',
                             horizontalalignment='center', verticalalignment='center')
                 else:
@@ -154,7 +170,7 @@ class GridWorld:
                         temp = self.transition_model[s, a]
                         for s_prime in range(len(temp)):
                             if temp[s_prime] > 0:
-                                string_action.append(f'p = {temp[s_prime]}, s\' = {s_prime}')
+                                string_action.append(f's\' = {s_prime}, p = {temp[s_prime]}')
                         string_transition.append('\n'.join(string_action))
 
                     ax.text(x + 0.5 * unit, y + 0.97 * unit, f'{string_transition[0]}',
@@ -175,12 +191,56 @@ class GridWorld:
                     ax.plot([x + 0.15 * unit], [y + 0.5 * unit], marker=symbol[3], alpha=0.3,
                             linestyle='none', markersize=25, color='#1f77b4')
 
+        plt.tight_layout()
+        plt.show()
+
+    def plot_policy(self, policy):
+        unit = 100
+        fig, ax = plt.subplots(1, 1, figsize=(2 * self.num_cols, 2 * self.num_rows), dpi=300)
+        # ax.set_title('Policy 1')
+        ax.axis('off')
+        for i in range(self.num_cols + 1):
+            if i == 0 or i == self.num_cols:
+                ax.plot([i * unit, i * unit], [0, self.num_rows * unit],
+                        color='black')
+            else:
+                ax.plot([i * unit, i * unit], [0, self.num_rows * unit],
+                        alpha=0.7, color='grey', linestyle='dashed')
+        for i in range(self.num_rows + 1):
+            if i == 0 or i == self.num_rows:
+                ax.plot([0, self.num_cols * unit], [i * unit, i * unit],
+                        color='black')
+            else:
+                ax.plot([0, self.num_cols * unit], [i * unit, i * unit],
+                        alpha=0.7, color='grey', linestyle='dashed')
+
+        for i in range(self.num_rows):
+            for j in range(self.num_cols):
+                y = (self.num_rows - 1 - i) * unit
+                x = j * unit
+                if self.map[i, j] == 3:
+                    rect = patches.Rectangle((x, y), unit, unit, edgecolor='none', facecolor='black',
+                                             alpha=0.6)
+                    ax.add_patch(rect)
+                elif self.map[i, j] == 2:
+                    rect = patches.Rectangle((x, y), unit, unit, edgecolor='none', facecolor='red',
+                                             alpha=0.6)
+                    ax.add_patch(rect)
+                elif self.map[i, j] == 1:
+                    rect = patches.Rectangle((x, y), unit, unit, edgecolor='none', facecolor='green',
+                                             alpha=0.6)
+                    ax.add_patch(rect)
+                s = self.get_state_from_pos((i, j))
+                # ax.text(x + 0.5 * unit, y + 0.15 * unit, f's = {s}',
+                #         horizontalalignment='center', verticalalignment='bottom')
+                if self.map[i, j] == 0:
+                    a = policy[s]
+                    symbol = ['^', '>', 'v', '<']
+                    ax.plot([x + 0.5 * unit], [y + 0.5 * unit], marker=symbol[a],
+                            linestyle='none', markersize=30, color='#1f77b4')
+
 
         plt.tight_layout()
         plt.show()
 
-
-problem = GridWorld('data/world00.csv')
-problem.plot_reward()
-problem.plot_transition_model()
 

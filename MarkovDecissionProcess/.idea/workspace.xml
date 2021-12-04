@@ -44,7 +44,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test-gridworld">
     <configuration name="GridWorld" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MarkovDecissionProcess" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,8 +66,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test-gridworld" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MarkovDecissionProcess" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-gridworld.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test-gridworld" />
         <item itemvalue="Python.GridWorld" />
       </list>
     </recent_temporary>
@@ -95,21 +117,25 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1638479049052">
+    <state x="1028" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638550333929">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638479049052" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1638479049052">
+    <state x="1028" y="502" key="#com.intellij.fileTypes.FileTypeChooser/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638550333929" />
+    <state width="1251" height="401" key="GridCell.Tab.0.bottom" timestamp="1638589473088">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638479049052" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1638479049051">
+    <state width="1251" height="401" key="GridCell.Tab.0.bottom/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638589473088" />
+    <state width="1251" height="401" key="GridCell.Tab.0.center" timestamp="1638589473088">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638479049051" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1638479049052">
+    <state width="1251" height="401" key="GridCell.Tab.0.center/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638589473088" />
+    <state width="1251" height="401" key="GridCell.Tab.0.left" timestamp="1638589473087">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638479049052" />
+    <state width="1251" height="401" key="GridCell.Tab.0.left/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638589473087" />
+    <state width="1251" height="401" key="GridCell.Tab.0.right" timestamp="1638589473088">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1251" height="401" key="GridCell.Tab.0.right/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638589473088" />
   </component>
 </project>
