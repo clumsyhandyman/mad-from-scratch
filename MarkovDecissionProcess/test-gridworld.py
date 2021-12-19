@@ -7,13 +7,17 @@ problem = GridWorld('data/world00.csv')
 # problem.plot_reward()
 # problem.plot_transition_model()
 # print(problem.reward_function)
+
+
 # # policy = problem.generate_random_policy()
+
 # policy = [1, 1, 3, 1, 0, 0, 2, 0, 1, 2, 1, 0]
 # policy = [0, 0, 1, 1, 1, 0, 3, 0, 0, 3, 1, 2]
+
 policy = [1, 1, 1, 1, 0, 0, 0, 0, 0, 3, 3, 3]
 print(f'random policy = {policy}')
 problem.plot_policy(policy)
-#
+
 n = 10000
 scores = np.zeros(n)
 for i in range(n):
