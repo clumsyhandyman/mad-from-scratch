@@ -38,4 +38,3 @@ Under the class **ValueIteration**, the following functions are provided:
 - *get_policy()*: determine policy based on current utility.
 - *train(tol, plot)*: perform value iteration with a stop criterion of the given tol.
 
-
