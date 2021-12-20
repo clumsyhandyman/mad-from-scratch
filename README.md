@@ -7,3 +7,4 @@ The following algorithms are implemented in Python:
 - Markov Decission Precoss (MDP)
 	- Basics of MDP (grid world)
 	- Policy Iteration
+	- Value Iteration

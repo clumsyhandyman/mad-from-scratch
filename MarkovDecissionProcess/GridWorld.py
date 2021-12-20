@@ -273,7 +273,7 @@ class GridWorld:
         plt.tight_layout()
         plt.savefig('policy.png')
 
-    def plot_policy_iteration_values(self, policy, values):
+    def visualize_value_policy(self, policy, values):
         unit = 100
         fig, ax = plt.subplots(1, 1, figsize=(2 * self.num_cols, 2 * self.num_rows), dpi=300)
         ax.axis('off')
@@ -314,11 +314,12 @@ class GridWorld:
                     ax.text(x + 0.5 * unit, y + 0.5 * unit, f's = {s}\n v = {values[s]:.4f}',
                             horizontalalignment='center', verticalalignment='center',
                             fontsize=16)
-                if self.map[i, j] == 0:
-                    a = policy[s]
-                    symbol = ['^', '>', 'v', '<']
-                    ax.plot([x + 0.5 * unit], [y + 0.5 * unit], marker=symbol[a], alpha=0.4,
-                            linestyle='none', markersize=45, color='#1f77b4')
+                if policy is not None:
+                    if self.map[i, j] == 0:
+                        a = policy[s]
+                        symbol = ['^', '>', 'v', '<']
+                        ax.plot([x + 0.5 * unit], [y + 0.5 * unit], marker=symbol[a], alpha=0.4,
+                                linestyle='none', markersize=45, color='#1f77b4')
 
         plt.tight_layout()
         plt.show()

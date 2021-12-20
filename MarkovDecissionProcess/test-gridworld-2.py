@@ -25,7 +25,7 @@ for d in range(100):
         print('Policy converge!')
         break
 
-problem.plot_policy_iteration_values(policy=solver.policy, values=solver.values)
+problem.visualize_value_policy(policy=solver.policy, values=solver.values)
 problem.random_start_policy(policy=solver.policy)
 
 
