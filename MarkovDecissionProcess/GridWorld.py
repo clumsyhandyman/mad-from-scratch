@@ -82,7 +82,7 @@ class GridWorld:
 
     def random_start_policy(self, policy, n=10000):
         self.plot_policy(policy)
-        policy_image = plt.imread('policy.png')
+        # policy_image = plt.imread('policy.png')
 
         scores = np.zeros(n)
         for i in range(n):
@@ -94,16 +94,23 @@ class GridWorld:
         print(f'mean = {np.mean(scores)}')
         print(f'std = {np.std(scores)}')
 
-        bins = 100
-        fig, ax = plt.subplots(1, 1, figsize=(6, 4), dpi=300)
-        new_ax = fig.add_axes([0.15, 0.5, 0.4, 0.3], anchor='NW', zorder=1)
-        new_ax.imshow(policy_image)
-        new_ax.axis('off')
-        ax.set_xlabel('Total rewards in a single game')
-        ax.set_ylabel('Frequency')
-        ax.hist(scores, bins=bins, color='#1f77b4', edgecolor='black')
-        # plt.tight_layout()
-        plt.show()
+        # bins = 100
+        # fig, ax = plt.subplots(1, 1, figsize=(6, 4), dpi=300)
+        # new_ax = fig.add_axes([0.15, 0.5, 0.4, 0.3], anchor='NW', zorder=1)
+        # new_ax.imshow(policy_image)
+        # new_ax.axis('off')
+        # ax.set_xlabel('Total rewards in a single game')
+        # ax.set_ylabel('Frequency')
+        # ax.hist(scores, bins=bins, color='#1f77b4', edgecolor='black')
+        # # plt.tight_layout()
+        # plt.show()
+        return np.max(scores), np.min(scores), np.mean(scores)
+
+    def blackbox_move(self, s, a):
+        temp = self.transition_model[s, a]
+        s_prime = np.random.choice(self.num_states, p=temp)
+        r = self.reward_function[s_prime]
+        return s_prime, r
 
     def plot_reward(self):
         unit = 100
