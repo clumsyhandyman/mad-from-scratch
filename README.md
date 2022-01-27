@@ -4,7 +4,8 @@ This repository is a series of machine learning, artificial intelligence, and da
 The following algorithms are implemented in Python:
 
 - Linear regression
-- Markov Decission Precoss (MDP)
+- Markov Decission Precoss (MDP) and Reinforcement Learning (RL)
 	- Basics of MDP (grid world)
 	- Policy Iteration
 	- Value Iteration
+	- Adaptive Dynamic Programming (ADP)
