@@ -53,8 +53,8 @@ class ValueIteration:
                 break
         self.policy = self.get_policy()
 
-        print(f'# iterations of policy improvement: {len(delta_history)}')
-        print(f'delta = {delta_history}')
+        # print(f'# iterations of policy improvement: {len(delta_history)}')
+        # print(f'delta = {delta_history}')
 
         if plot is True:
             fig, ax = plt.subplots(1, 1, figsize=(3, 2), dpi=200)

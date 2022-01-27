@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 class PolicyIteration:
-    def __init__(self, reward_function, transition_model, gamma, init_policy=None):
+    def __init__(self, reward_function, transition_model, gamma, init_policy=None, init_value=None):
         self.num_states = transition_model.shape[0]
         self.num_actions = transition_model.shape[1]
         self.reward_function = np.nan_to_num(reward_function)
@@ -11,7 +11,10 @@ class PolicyIteration:
         self.transition_model = transition_model
         self.gamma = gamma
 
-        self.values = np.zeros(self.num_states)
+        if init_value is None:
+            self.values = np.zeros(self.num_states)
+        else:
+            self.values = init_value
         if init_policy is None:
             self.policy = np.random.randint(0, self.num_actions, self.num_states)
         else:
@@ -53,17 +56,15 @@ class PolicyIteration:
 
     def train(self, tol=1e-3, plot=True):
         epoch = 0
-        eval_count = self.run_policy_evaluation(tol=tol)
-        eval_count_history = [eval_count]
-        policy_change = self.run_policy_improvement()
-        policy_change_history = [policy_change]
+        eval_count_history = []
+        policy_change_history = []
         while epoch < 500:
             epoch += 1
-            new_eval_count = self.run_policy_evaluation(tol)
-            new_policy_change = self.run_policy_improvement()
-            eval_count_history.append(new_eval_count)
-            policy_change_history.append(new_policy_change)
-            if new_policy_change == 0:
+            eval_count = self.run_policy_evaluation(tol)
+            policy_change = self.run_policy_improvement()
+            eval_count_history.append(eval_count)
+            policy_change_history.append(policy_change)
+            if policy_change == 0:
                 break
 
         print(f'# epoch: {len(policy_change_history)}')
