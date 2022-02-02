@@ -39,9 +39,12 @@ Under the class **ValueIteration**, the following functions are provided:
 - *train(tol, plot)*: perform value iteration with a stop criterion of the given tol. If plot is true, the function plots learning curves showing maximum value change in each iteration.
 
 ### ADPLearner.py
-Implement an adaptive dynamic programming (ADP) agent to learn a MDP.
+Implement a model-based adaptive dynamic programming (ADP) agent to learn a MDP.
+
+More details: https://medium.com/@ngao7/reinforcement-learning-model-based-adp-learner-with-code-implementation-6ad73867fb1e
 
 Under the class **ADPLearner**, the following functions are provided:
-- *update_step(s, a, s', r)*: update the learned reward and transition model after each step moved in MDP from the given set of (s, a, s', r) associated with that step. This function returns the next action for the agent based on currently learned policy.
-- *update_episode*: update the learned policy after each episode (an episode here is defined as multiple steps from a starting state to an ending state).
+- *percept(s, a, s', r)*: update the learned reward and transition model after each step moved in MDP from the given set of (s, a, s', r) associated with that step. 
+- *actuate(s'): return the next action for the agent based on currently learned policy for state s'.
+- *policy_update*: update the learned policy after each episode (an episode here is defined as a series of steps from a starting state to an ending state).
 

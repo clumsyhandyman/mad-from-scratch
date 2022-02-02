@@ -3,12 +3,12 @@ from PolicyIteration import PolicyIteration
 
 
 class ADPLearner:
-    def __init__(self, num_states, num_actions, gamma=0.9, rar=0.75, radr=0.99):
+    def __init__(self, num_states, num_actions, gamma=0.9, epsilon=0.9, xi=0.99):
         self.num_states = num_states
         self.num_actions = num_actions
         self.gamma = gamma
-        self.rar = rar
-        self.radr = radr
+        self.epsilon = epsilon
+        self.xi = xi
 
         self.u_table = np.zeros(num_states)
         self.r_table = np.zeros(num_states)
@@ -18,7 +18,7 @@ class ADPLearner:
         self.count_action = np.zeros((num_states, num_actions))
         self.count_outcome = np.zeros((num_states, num_actions, num_states))
 
-    def update_step(self, s, a, s_prime, r):
+    def percept(self, s, a, s_prime, r):
         if self.visited_state[s_prime] == 0:
             self.u_table[s_prime] = r
             self.r_table[s_prime] = r
@@ -26,17 +26,19 @@ class ADPLearner:
         self.count_action[s, a] += 1
         self.count_outcome[s, a, s_prime] += 1
         self.p_table[s, a] = self.count_outcome[s, a] / self.count_action[s, a]
-        if np.random.uniform() <= self.rar:
+
+    def actuate(self, s_prime):
+        if np.random.uniform() <= self.epsilon:
             return np.random.randint(self.num_actions)
         else:
             return self.cur_policy[s_prime]
 
-    def update_episode(self):
+    def policy_update(self):
         solver = PolicyIteration(self.r_table, self.p_table, self.gamma,
                                  init_policy=self.cur_policy, init_value=self.u_table)
         solver.train(tol=1e-3, plot=False)
         self.cur_policy = solver.policy
-        self.rar *= self.radr
+        self.epsilon *= self.xi
 
 
 

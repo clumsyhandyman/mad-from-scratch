@@ -67,9 +67,9 @@ class PolicyIteration:
             if policy_change == 0:
                 break
 
-        print(f'# epoch: {len(policy_change_history)}')
-        print(f'eval count = {eval_count_history}')
-        print(f'policy change = {policy_change_history}')
+        # print(f'# epoch: {len(policy_change_history)}')
+        # print(f'eval count = {eval_count_history}')
+        # print(f'policy change = {policy_change_history}')
 
         if plot is True:
             fig, axes = plt.subplots(2, 1, figsize=(3.5, 4), sharex='all', dpi=200)
