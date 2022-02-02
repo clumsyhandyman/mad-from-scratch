@@ -45,6 +45,6 @@ More details: https://medium.com/@ngao7/reinforcement-learning-model-based-adp-l
 
 Under the class **ADPLearner**, the following functions are provided:
 - *percept(s, a, s', r)*: update the learned reward and transition model after each step moved in MDP from the given set of (s, a, s', r) associated with that step. 
-- *actuate(s'): return the next action for the agent based on currently learned policy for state s'.
+- *actuate(s')*: return the next action for the agent based on currently learned policy for state s'.
 - *policy_update*: update the learned policy after each episode (an episode here is defined as a series of steps from a starting state to an ending state).
 
