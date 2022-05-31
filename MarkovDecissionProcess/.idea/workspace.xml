@@ -55,6 +55,27 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.test-gridworld-ADPLearner">
+    <configuration name="MCLearner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MarkovDecissionProcess" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MCLearner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test-gridworld-ADPLearner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MarkovDecissionProcess" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,27 +110,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-gridworld-MCLearner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test-gridworld-ModelBasedLearner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MarkovDecissionProcess" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-gridworld-ModelBasedLearner.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,10 +163,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.test-gridworld-ADPLearner" />
-        <item itemvalue="Python.test-gridworld-PolicyIteration-world02" />
         <item itemvalue="Python.test-gridworld-MCLearner" />
+        <item itemvalue="Python.MCLearner" />
+        <item itemvalue="Python.test-gridworld-PolicyIteration-world02" />
         <item itemvalue="Python.test-gridworld-QLearner" />
-        <item itemvalue="Python.test-gridworld-ModelBasedLearner" />
       </list>
     </recent_temporary>
   </component>
@@ -194,53 +194,41 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1028" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638550333929">
+    <state x="1061" y="442" key="FileChooserDialogImpl" timestamp="1653944510211">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1028" y="502" key="#com.intellij.fileTypes.FileTypeChooser/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1638550333929" />
-    <state x="786" y="108" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1643165881558">
+    <state x="1061" y="442" key="FileChooserDialogImpl/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1653944510211" />
+    <state width="1244" height="249" key="GridCell.Tab.0.bottom" timestamp="1653964359328">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="786" y="108" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643165881558" />
-    <state width="2540" height="251" key="GridCell.Tab.0.bottom" timestamp="1643509077677">
+    <state width="2539" height="251" key="GridCell.Tab.0.bottom/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1651234011121" />
+    <state width="1257" height="251" key="GridCell.Tab.0.bottom/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1651371892829" />
+    <state width="2539" height="249" key="GridCell.Tab.0.bottom/6400.-1.1536.848/2560.-1.2560.1400/0.0.2560.1560@2560.-1.2560.1400" timestamp="1653690779510" />
+    <state width="1244" height="249" key="GridCell.Tab.0.bottom/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1653964359328" />
+    <state width="2539" height="249" key="GridCell.Tab.0.bottom/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@3840.-1.2560.1400" timestamp="1653775168291" />
+    <state width="1244" height="249" key="GridCell.Tab.0.center" timestamp="1653964359328">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2540" height="628" key="GridCell.Tab.0.bottom/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1642871791109" />
-    <state width="2540" height="251" key="GridCell.Tab.0.bottom/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643509077677" />
-    <state width="1899" height="246" key="GridCell.Tab.0.bottom/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@3840.1071.1920.1040" timestamp="1639973365964" />
-    <state width="2540" height="251" key="GridCell.Tab.0.center" timestamp="1643509077677">
+    <state width="2539" height="251" key="GridCell.Tab.0.center/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1651234011121" />
+    <state width="1257" height="251" key="GridCell.Tab.0.center/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1651371892829" />
+    <state width="2539" height="249" key="GridCell.Tab.0.center/6400.-1.1536.848/2560.-1.2560.1400/0.0.2560.1560@2560.-1.2560.1400" timestamp="1653690779510" />
+    <state width="1244" height="249" key="GridCell.Tab.0.center/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1653964359328" />
+    <state width="2539" height="249" key="GridCell.Tab.0.center/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@3840.-1.2560.1400" timestamp="1653775168291" />
+    <state width="1244" height="249" key="GridCell.Tab.0.left" timestamp="1653964359328">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2540" height="628" key="GridCell.Tab.0.center/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1642871791109" />
-    <state width="2540" height="251" key="GridCell.Tab.0.center/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643509077677" />
-    <state width="1899" height="246" key="GridCell.Tab.0.center/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@3840.1071.1920.1040" timestamp="1639973365964" />
-    <state width="2540" height="251" key="GridCell.Tab.0.left" timestamp="1643509077677">
+    <state width="2539" height="251" key="GridCell.Tab.0.left/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1651234011121" />
+    <state width="1257" height="251" key="GridCell.Tab.0.left/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1651371892829" />
+    <state width="2539" height="249" key="GridCell.Tab.0.left/6400.-1.1536.848/2560.-1.2560.1400/0.0.2560.1560@2560.-1.2560.1400" timestamp="1653690779509" />
+    <state width="1244" height="249" key="GridCell.Tab.0.left/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1653964359328" />
+    <state width="2539" height="249" key="GridCell.Tab.0.left/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@3840.-1.2560.1400" timestamp="1653775168291" />
+    <state width="1244" height="249" key="GridCell.Tab.0.right" timestamp="1653964359328">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2540" height="628" key="GridCell.Tab.0.left/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1642871791109" />
-    <state width="2540" height="251" key="GridCell.Tab.0.left/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643509077677" />
-    <state width="1899" height="246" key="GridCell.Tab.0.left/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@3840.1071.1920.1040" timestamp="1639973365963" />
-    <state width="2540" height="251" key="GridCell.Tab.0.right" timestamp="1643509077677">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2540" height="628" key="GridCell.Tab.0.right/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1642871791109" />
-    <state width="2540" height="251" key="GridCell.Tab.0.right/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643509077677" />
-    <state width="1899" height="246" key="GridCell.Tab.0.right/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@3840.1071.1920.1040" timestamp="1639973365964" />
-    <state x="4248" y="1294" width="2256" height="1388" maximized="true" key="dock-window-1" timestamp="1643257331503">
-      <screen x="3840" y="1071" width="1920" height="1040" />
-    </state>
-    <state x="4248" y="1294" width="2256" height="1388" maximized="true" key="dock-window-1/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643257331503" />
-    <state x="3638" y="1407" width="2256" height="1388" maximized="true" key="dock-window-2" timestamp="1643257629095">
-      <screen x="3840" y="1071" width="1920" height="1040" />
-    </state>
-    <state x="3638" y="1407" width="2256" height="1388" maximized="true" key="dock-window-2/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643257629095" />
-    <state x="4341" y="1605" width="2256" height="1388" maximized="true" key="dock-window-3" timestamp="1643257629096">
-      <screen x="3840" y="1071" width="1920" height="1040" />
-    </state>
-    <state x="4341" y="1605" width="2256" height="1388" maximized="true" key="dock-window-3/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643257629096" />
-    <state x="3840" y="1245" width="1936" height="905" maximized="true" key="dock-window-4" timestamp="1643258389045">
-      <screen x="3840" y="1071" width="1920" height="1040" />
-    </state>
-    <state x="3840" y="1245" width="1936" height="905" maximized="true" key="dock-window-4/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1643258389045" />
+    <state width="2539" height="251" key="GridCell.Tab.0.right/-3840.0.1536.840/0.0.2560.1400/3840.1071.1920.1040@0.0.2560.1400" timestamp="1651234011121" />
+    <state width="1257" height="251" key="GridCell.Tab.0.right/-3840.0.1536.840/3840.1071.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1651371892829" />
+    <state width="2539" height="249" key="GridCell.Tab.0.right/6400.-1.1536.848/2560.-1.2560.1400/0.0.2560.1560@2560.-1.2560.1400" timestamp="1653690779510" />
+    <state width="1244" height="249" key="GridCell.Tab.0.right/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1653964359328" />
+    <state width="2539" height="249" key="GridCell.Tab.0.right/7680.-1.1536.840/3840.-1.2560.1400/0.0.2560.1400@3840.-1.2560.1400" timestamp="1653775168291" />
   </component>
 </project>
