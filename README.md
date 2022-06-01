@@ -9,4 +9,5 @@ The following algorithms are implemented in Python:
 	- Basics of MDP (grid world)
 	- Policy Iteration
 	- Value Iteration
-	- Adaptive Dynamic Programming (ADP)
+	- Model-based Adaptive Dynamic Programming (ADP)
+	- Model-free Monte Carlo (MC)

@@ -48,3 +48,17 @@ Under the class **ADPLearner**, the following functions are provided:
 - *actuate(s')*: return the next action for the agent based on currently learned policy for state s'.
 - *policy_update*: update the learned policy after each episode (an episode here is defined as a series of steps from a starting state to an ending state).
 
+### MCLearner.py
+Implement a model-free Monte Carlo (MC) agent to learn a MDP.
+
+More details: https://medium.com/@ngao7/reinforcement-learning-model-free-mc-learner-with-code-implementation-f9f475296dcb
+
+Under the class **MCLearner**, similar API is provided as the ADP learner:
+- *percept(s, a, s', r)*: update the G values of the current episode after each step moved in MDP from the given set of (s, a, s', r) associated with that step. 
+- *actuate(s')*: return the next action for the agent based on currently learned policy for state s'.
+- *policy_update*: update the learned policy after each episode.
+
+
+
+
+
