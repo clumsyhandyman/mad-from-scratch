@@ -1,9 +1,12 @@
 from GridWorld import GridWorld
 from MCLearner import MCLearner
 
+from time import time
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
+
 
 
 class GridWorldMCSolver:
@@ -16,6 +19,7 @@ class GridWorldMCSolver:
         s = self.problem.get_state_from_pos(start_pos)
         if_win = 0
         reward_game = 0
+        time_start = int(round(time() * 1000))
         while True:
             a = self.learner.actuate(s)
             s_prime, r = self.problem.blackbox_move(s, a)
@@ -28,6 +32,9 @@ class GridWorldMCSolver:
                 break
             else:
                 s = s_prime
+            if int(round(time() * 1000)) - time_start > 60000:
+                print('Time out in this epoch!')
+                break
         self.learner.policy_update()
         return reward_game, if_win
 
@@ -37,6 +44,7 @@ class GridWorldMCSolver:
         total_reward = 0
         game_win = np.zeros(epochs)
 
+        time_start = int(round(time() * 1000))
         for i in range(epochs):
             print(f'Training epoch {i + 1}')
             reward_episode, win_episode = self.train_one_epoch(start_pos=start_pos)
@@ -44,6 +52,9 @@ class GridWorldMCSolver:
             game_win[i] = win_episode
             reward_history[i] = reward_episode
             total_reward_history[i] = total_reward
+        time_end = int(round(time() * 1000))
+        print(f'time used = {time_end - time_start}')
+        print(f'final reward = {total_reward}')
 
         # print('FINAL POLICY')
         # print(self.learner.cur_policy)
@@ -87,7 +98,6 @@ class GridWorldMCSolver:
             plt.tight_layout()
             plt.show()
 
-
         return total_reward
 
 
@@ -110,7 +120,7 @@ class GridWorldMCSolver:
 # plt.show()
 
 
-np.random.seed(42)
+np.random.seed(41)
 problem = GridWorld('data/world02.csv', reward={0: -0.04, 1: 10.0, 2: -2.5, 3: np.NaN}, random_rate=0.2)
 problem_solver = GridWorldMCSolver(problem, MCLearner, epsilon=1.0, xi=0.99, initial_q=0.0)
 problem_solver.train(1000, start_pos=(5, 3), plot=True)

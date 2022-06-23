@@ -11,3 +11,4 @@ The following algorithms are implemented in Python:
 	- Value Iteration
 	- Model-based Adaptive Dynamic Programming (ADP)
 	- Model-free Monte Carlo (MC)
+	- Q-Learning

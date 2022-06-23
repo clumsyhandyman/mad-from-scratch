@@ -4,6 +4,7 @@ from ADPLearner import ADPLearner
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
+from time import time
 
 
 class GridWorldMBSolver:
@@ -37,6 +38,7 @@ class GridWorldMBSolver:
         total_reward = 0
         game_win = np.zeros(epochs)
 
+        time_start = int(round(time() * 1000))
         for i in range(epochs):
             print(f'Training epoch {i + 1}')
             reward_episode, win_episode = self.train_one_epoch(start_pos=start_pos)
@@ -44,11 +46,15 @@ class GridWorldMBSolver:
             game_win[i] = win_episode
             reward_history[i] = reward_episode
             total_reward_history[i] = total_reward
+        time_end = int(round(time() * 1000))
+        print(f'time used = {time_end - time_start}')
+        print(f'final reward = {total_reward}')
 
-        game_win = game_win.reshape((10, epochs // 10))
+        segment = 10
+        game_win = game_win.reshape((segment, epochs // segment))
         game_win = np.sum(game_win, axis=1)
 
-        print(f'winning percentage = {game_win / (epochs // 10)}')
+        print(f'winning percentage = {game_win / (epochs // segment)}')
 
         if plot:
             fig, axes = plt.subplots(2, 1, figsize=(5, 4), dpi=200, sharex='all')
@@ -68,7 +74,7 @@ class GridWorldMBSolver:
             plt.show()
 
             fig, ax = plt.subplots(1, 1, figsize=(6, 3), dpi=200)
-            ax.plot(np.arange(1, 11) * (epochs // 10), game_win / (epochs // 10), marker='o', markersize=2,
+            ax.plot(np.arange(1, segment + 1) * (epochs // segment), game_win / (epochs // segment), marker='o', markersize=2,
                     alpha=0.7, color='#2ca02c',
                     label=r'$\xi$ = ' + f'{self.learner.xi}')
             ax.set_ylabel('Winning percentage')

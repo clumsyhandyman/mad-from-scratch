@@ -44,7 +44,7 @@ Implement a model-based adaptive dynamic programming (ADP) agent to learn a MDP.
 More details: https://medium.com/@ngao7/reinforcement-learning-model-based-adp-learner-with-code-implementation-6ad73867fb1e
 
 Under the class **ADPLearner**, the following functions are provided:
-- *percept(s, a, s', r)*: update the learned reward and transition model after each step moved in MDP from the given set of (s, a, s', r) associated with that step. 
+- *percept(s, a, s', r)*: update the learned reward and transition model after each step moved in MDP from the given (s, a, s', r) associated with that step. 
 - *actuate(s')*: return the next action for the agent based on currently learned policy for state s'.
 - *policy_update*: update the learned policy after each episode (an episode here is defined as a series of steps from a starting state to an ending state).
 
@@ -54,9 +54,19 @@ Implement a model-free Monte Carlo (MC) agent to learn a MDP.
 More details: https://medium.com/@ngao7/reinforcement-learning-model-free-mc-learner-with-code-implementation-f9f475296dcb
 
 Under the class **MCLearner**, similar API is provided as the ADP learner:
-- *percept(s, a, s', r)*: update the G values of the current episode after each step moved in MDP from the given set of (s, a, s', r) associated with that step. 
+- *percept(s, a, s', r)*: update the G values of the current episode after each step moved in MDP from the given (s, a, s', r) associated with that step. 
 - *actuate(s')*: return the next action for the agent based on currently learned policy for state s'.
 - *policy_update*: update the learned policy after each episode.
+
+### QLearner.py
+Implement a model-free Q-learning agent to learn a MDP.
+
+More details: https://medium.com/@ngao7/reinforcement-learning-concepts-of-q-learning-22f2659525fd
+
+Under the class **QLearner**, similar API is provided as the ADP and MC learner:
+- *percept(s, a, s', r)*: update the Q values of the current state-action pair after each step moved in MDP from the given (s, a, s', r) associated with that step. 
+- *actuate(s')*: return the next action for the agent based on currently learned policy for state s'.
+- *episode_update*: update the probability threshold to transit from exploration to exploitation.
 
 
 
